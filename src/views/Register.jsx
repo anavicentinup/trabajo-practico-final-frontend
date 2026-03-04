@@ -14,7 +14,7 @@ return(
 <input type="text" name="addres"placeholder="ingresa tu Nacionalidad"/>
 <button>Enviar</button>
         </form>
-    <h3 onClick={backTotop}>volver</h3>
+    <h3 className="return" onClick={backTotop}>volver</h3>
     </section>
 )
 }

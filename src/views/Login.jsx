@@ -40,9 +40,9 @@ const Login = () => {
   const provideInfo = () =>{
     navigate("/abautUs")
   }
-  
+
   return (
-    <section>
+    <section className="login">
       <h2 className="title-login">Bienvenido, inicia sesión</h2>
       <form onSubmit={handleSubmit}>
         <input
@@ -59,9 +59,9 @@ const Login = () => {
         {
           error && <p className="error-form">Error al ingresar</p>
         }
+        <button onClick={createNewCount}>Crear una Cuenta nueva</button>
       </form>
-      <h3 onClick={createNewCount}>Crear una Cuenta nueva</h3>
-      <h3 onClick={provideInfo}>Acerca de Tu App</h3>
+         <h4 className="abautUs" onClick={provideInfo}>Acerca de Tu App</h4>
     </section>
   )
 }
