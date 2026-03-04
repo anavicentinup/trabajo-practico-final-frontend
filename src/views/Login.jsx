@@ -33,6 +33,14 @@ const Login = () => {
     navigate("/")
   }
 
+  const createNewCount = () => {
+    navigate("/register")
+  }
+
+  const provideInfo = () =>{
+    navigate("/abautUs")
+  }
+  
   return (
     <section>
       <h2 className="title-login">Bienvenido, inicia sesión</h2>
@@ -52,6 +60,8 @@ const Login = () => {
           error && <p className="error-form">Error al ingresar</p>
         }
       </form>
+      <h3 onClick={createNewCount}>Crear una Cuenta nueva</h3>
+      <h3 onClick={provideInfo}>Acerca de Tu App</h3>
     </section>
   )
 }
