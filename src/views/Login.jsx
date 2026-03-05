@@ -7,7 +7,8 @@ const Login = () => {
   const [password, setPassword] = useState("")
   const [error, setError] = useState(null)
 
-  const { login, handleUser } = useContext(ChatContext)
+
+  const { login, handleUser ,loggedUser } = useContext(ChatContext)
 
   const navigate = useNavigate()
 
@@ -23,21 +24,21 @@ const Login = () => {
     e.preventDefault()
     setError(null)
     const response = login({ email, password })
-
-    if (!response) {
-      setError(true)
+    if ( response || loggedUser && email === loggedUser.email && password === loggedUser.password) {
+      handleUser({ email, password })
+      navigate("/")
       return
-    }
-
-    handleUser({ email, password })
-    navigate("/")
+    } 
+    setError(true)
+    return
   }
+
 
   const createNewCount = () => {
     navigate("/register")
   }
 
-  const provideInfo = () =>{
+  const provideInfo = () => {
     navigate("/abautUs")
   }
 
@@ -61,7 +62,7 @@ const Login = () => {
         }
         <button onClick={createNewCount}>Crear una Cuenta nueva</button>
       </form>
-         <h4 className="abautUs" onClick={provideInfo}>Acerca de Tu App</h4>
+      <h4 className="abautUs" onClick={provideInfo}>Acerca de Tu App</h4>
     </section>
   )
 }

@@ -6,8 +6,11 @@ const ChatContext = createContext()
 const ChatProvider = ({ children }) => {
   const [users, setUsers] = useState(mockUsers)
   const [selectedUserId, setSelectedUserId] = useState(null)
-  const [loggedUser, setLoggedUser] = useState(JSON.parse(localStorage.getItem("user")) || null)
 
+  const UserInLs = localStorage.getItem("user")
+
+  const [loggedUser, setLoggedUser] = useState( UserInLs ? JSON.parse(UserInLs) : null)
+  
   const handleUser = (user) => {
     setLoggedUser(user)
     localStorage.setItem("user", JSON.stringify(user))
@@ -27,10 +30,12 @@ const ChatProvider = ({ children }) => {
     if (foundUser.password === userData.password) {
       return true
     }
+    return false
   }
 
   const logout = () => {
     localStorage.removeItem("user")
+    setLoggedUser(null)
   }
 
   const handleMessages = (newMessage) => {
