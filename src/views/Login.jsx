@@ -5,8 +5,9 @@ import { useNavigate } from "react-router-dom"
 const Login = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [errorEmail, setErrorEmail] = useState(null)
+  const [errorPass, setErrorPass] = useState(null)
   const [error, setError] = useState(null)
-
 
   const { login, handleUser, loggedUser } = useContext(ChatContext)
 
@@ -36,6 +37,8 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     setError(null)
+    setErrorEmail(null)
+    setErrorPass(null)
     const response = login({ email, password })
     console.log(response)
     if (response) {
@@ -44,13 +47,17 @@ const Login = () => {
       return
     }
     if (loggedUser) {
-      if (email === loggedUser.email) {
-        if (password === loggedUser.password) {
-          handleUser({ email, password })
-          navigate("/")
-          return
-        }
+      if (email !== loggedUser.email) {
+        setErrorEmail(true)
+        return
       }
+      if (password !== loggedUser.password) {
+        setErrorPass(true)
+        return
+      }
+      handleUser({ email, password })
+      navigate("/")
+
     }
     setError(true)
     return
@@ -80,9 +87,9 @@ const Login = () => {
           onChange={handleChangePassword}
         />
         <button>Ingresar</button>
-        {
-          error && <p className="error-form">Error al ingresar</p>
-        }
+        {error && <p className="error-form">No existe el usuario</p>}
+        {errorEmail && <p className="error-form">Email invalido</p>}
+        {errorPass && <p className="error-form">Contraseña incorrecta</p>}
         <button onClick={createNewCount}>Crear una Cuenta nueva</button>
       </form>
       <h4 className="abautUs" onClick={provideInfo}>Acerca de Tu App</h4>
