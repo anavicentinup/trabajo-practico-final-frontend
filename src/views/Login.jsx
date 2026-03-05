@@ -8,7 +8,7 @@ const Login = () => {
   const [error, setError] = useState(null)
 
 
-  const { login, handleUser ,loggedUser } = useContext(ChatContext)
+  const { login, handleUser, loggedUser } = useContext(ChatContext)
 
   const navigate = useNavigate()
 
@@ -20,15 +20,38 @@ const Login = () => {
     setPassword(e.target.value)
   }
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault()
+  //   setError(null)
+  //   const response = login({ email, password })
+  //   if ( response || loggedUser && email === loggedUser.email && password === loggedUser.password) {
+  //     handleUser({ email, password })
+  //     navigate("/")
+  //     return
+  //   } 
+  //   setError(true)
+  //   return
+  // }
+
   const handleSubmit = (e) => {
     e.preventDefault()
     setError(null)
     const response = login({ email, password })
-    if ( response || loggedUser && email === loggedUser.email && password === loggedUser.password) {
+    console.log(response)
+    if (response) {
       handleUser({ email, password })
       navigate("/")
       return
-    } 
+    }
+    if (loggedUser) {
+      if (email === loggedUser.email) {
+        if (password === loggedUser.password) {
+          handleUser({ email, password })
+          navigate("/")
+          return
+        }
+      }
+    }
     setError(true)
     return
   }

@@ -14,6 +14,7 @@ const Register = () => {
 
     const handleName = (e) => {
         setFirstName(e.target.value)
+        
     }
     const handleLastName = (e) => {
         setLastName(e.target.value)
@@ -42,11 +43,11 @@ const Register = () => {
     return (
         <section>
             <form onSubmit={handleNewUser}>
-                <input type="text" name="firstName" placeholder="ingresa tu nombre" onChange={handleName} />
-                <input type="text" name="lastName" placeholder="ingresa tu apellido" onChange={handleLastName} />
-                <input type="email" name="email" placeholder="ingresa tu email" onChange={handleEmail} />
-                <input type="text" name="password" placeholder="ingresa tu contraseña" onChange={handlePassword} />
-                <input type="text" name="addres" placeholder="ingresa tu Nacionalidad" onChange={handleNacionality} />
+                <input type="text" name="firstName" placeholder="ingresa tu nombre" onChange={handleName}required minLength={3}/>
+                <input type="text" name="lastName" placeholder="ingresa tu apellido" onChange={handleLastName} required minLength={3}/>
+                <input type="email" name="email" placeholder="ingresa tu email" onChange={handleEmail}required />
+                <input type="text" name="password" placeholder="ingresa tu contraseña" onChange={handlePassword} required minLength={6}/>
+                <input type="text" name="addres" placeholder="ingresa tu Nacionalidad" onChange={handleNacionality} required/>
                 <button>Enviar</button>
             </form>
             <h3 className="return" onClick={backTotop}>volver</h3>
