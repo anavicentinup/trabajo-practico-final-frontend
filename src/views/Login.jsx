@@ -7,7 +7,7 @@ const Login = () => {
   const [password, setPassword] = useState("")
   const [errorEmail, setErrorEmail] = useState(null)
   const [errorPass, setErrorPass] = useState(null)
-  const [error, setError] = useState(null)
+  const [error, setError] = useState(false)
   const [showPass, setShowPass] = useState(false)
 
   const { login, handleUser, loggedUser } = useContext(ChatContext)
@@ -41,8 +41,12 @@ const Login = () => {
     setErrorEmail(null)
     setErrorPass(null)
     const response = login({ email, password })
-    console.log(response)
+    console.log(response.password, response.email)
     if (response) {
+       if (password.toLowerCase() !== response.password.toLowerCase()) {
+        setErrorPass(true)
+        return
+      }
       handleUser({ email, password })
       navigate("/")
       return
