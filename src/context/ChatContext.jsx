@@ -26,7 +26,6 @@ const ChatProvider = ({ children }) => {
     if (foundUser) {
       return foundUser
     }
-
     // if (foundUser.password === userData.password) {
     //   return true
     // }
