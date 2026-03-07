@@ -11,10 +11,11 @@ const Register = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [nacionality, setNacionality] = useState("")
+    const [showPass, setShowPass] = useState(false)
 
     const handleName = (e) => {
         setFirstName(e.target.value)
-        
+
     }
     const handleLastName = (e) => {
         setLastName(e.target.value)
@@ -40,14 +41,48 @@ const Register = () => {
         navigate("/login")
     }
 
+    const showingPassword = () => {
+        setShowPass(!showPass)
+    }
+
     return (
         <section>
             <form onSubmit={handleNewUser}>
-                <input type="text" name="firstName" placeholder="ingresa tu nombre" onChange={handleName}required minLength={3}/>
-                <input type="text" name="lastName" placeholder="ingresa tu apellido" onChange={handleLastName} required minLength={3}/>
-                <input type="email" name="email" placeholder="ingresa tu email" onChange={handleEmail}required />
-                <input type="text" name="password" placeholder="ingresa tu contraseña" onChange={handlePassword} required minLength={6}/>
-                <input type="text" name="addres" placeholder="ingresa tu Nacionalidad" onChange={handleNacionality} required/>
+                <input type="text"
+                    name="firstName"
+                    placeholder="ingresa tu nombre"
+                    onChange={handleName}
+                    required minLength={3} />
+
+                <input type="text"
+                    name="lastName"
+                    placeholder="ingresa tu apellido"
+                    onChange={handleLastName}
+                    required minLength={3} />
+
+                <input type="email"
+                    name="email"
+                    placeholder="ingresa tu email"
+                    onChange={handleEmail}
+                    required />
+
+                <div>
+                    <input type={showPass ? "text" : "password"}
+                        name="password"
+                        placeholder="ingresa tu contraseña"
+                        onChange={handlePassword}
+                        required minLength={6} />
+                    <button onClick={showingPassword}>
+                        {showPass ? <p>🙉</p> : <p>🙈</p>}
+
+                    </button>
+                </div>
+
+                <input type="text"
+                    name="addres"
+                    placeholder="ingresa tu Nacionalidad"
+                    onChange={handleNacionality}
+                    required />
                 <button>Enviar</button>
             </form>
             <h3 className="return" onClick={backTotop}>volver</h3>

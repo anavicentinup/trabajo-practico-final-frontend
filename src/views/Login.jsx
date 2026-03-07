@@ -8,6 +8,7 @@ const Login = () => {
   const [errorEmail, setErrorEmail] = useState(null)
   const [errorPass, setErrorPass] = useState(null)
   const [error, setError] = useState(null)
+  const [showPass, setShowPass] = useState(false)
 
   const { login, handleUser, loggedUser } = useContext(ChatContext)
 
@@ -47,11 +48,11 @@ const Login = () => {
       return
     }
     if (loggedUser) {
-      if (email !== loggedUser.email) {
+      if (email.toLowerCase() !== loggedUser.email.toLowerCase()) {
         setErrorEmail(true)
         return
       }
-      if (password !== loggedUser.password) {
+      if (password.toLowerCase() !== loggedUser.password.toLowerCase()) {
         setErrorPass(true)
         return
       }
@@ -72,6 +73,10 @@ const Login = () => {
     navigate("/abautUs")
   }
 
+     const showingPassword = () => {
+        setShowPass(!showPass)
+    }
+
   return (
     <section className="login">
       <h2 className="title-login">Bienvenido, inicia sesión</h2>
@@ -81,11 +86,16 @@ const Login = () => {
           placeholder="Correo electrónico"
           onChange={handleChangeEmail}
         />
-        <input
-          type="password"
-          placeholder="Contraseña"
-          onChange={handleChangePassword}
-        />
+        <div>
+          <input
+            type={showPass ? "text" : "password"}
+            placeholder="Contraseña"
+            onChange={handleChangePassword}
+          />
+          <button onClick={showingPassword}>
+            {showPass ? <p>🙉</p> : <p>🙈</p>}
+          </button>
+        </div>
         <button>Ingresar</button>
         {error && <p className="error-form">No existe el usuario</p>}
         {errorEmail && <p className="error-form">Email invalido</p>}
