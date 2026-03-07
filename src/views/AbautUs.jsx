@@ -9,36 +9,50 @@ const AbautUs = () => {
         <section className="acerca">
             <h1>TRABAJO PRACTICO FINAL FRONT-END</h1>
             <p>
-                Mi proyecto esta basado en un duplicado de aplicacion de mensajeria.
-                El objetivo principal es un sistema de login que acceda a una app donde se encuentre informacion personal del usuario.
-                Por ello desarrollamos un sistema que navega entre diferentes secciones segun la situacion del usuario.
-                Un usuario puede ingresar y el sistema valida los datos contra una lista de usuarios simulados (mockUsers).
-                Un nuevo Usuario debe crearse una cuenta nueva y el sistema lo guarda e ingresa desde la pagina login y lo valida.
-                Una vez identificado, el usuario accede a la pagina principal de la aplicacion.
+                Mi proyecto esta basado en un duplicado de aplicacion de mensajeria. <br />
+                El objetivo principal es un sistema de login que acceda a una app donde se encuentre informacion personal del usuario. <br />
+                Por ello desarrollamos un sistema que navega entre diferentes secciones segun la situacion del usuario. <br />
+                Un usuario puede ingresar y el sistema valida los datos contra una lista de usuarios simulados (mockUsers).<br />
+                Un nuevo Usuario debe crearse una cuenta nueva y el sistema lo guarda e ingresa desde la pagina login y lo valida. <br />
+                Una vez identificado, el usuario accede a la pagina principal de la aplicacion. <br />
                 El objetivo de este proyecto es aplicar todos los conceptos aprendidos en React.
             </p>
             <h2>Partes principales de la aplicacion:</h2>
             <ol>
-                <li>Login: es un formulario donde el usuario ingresa email y contraseña. Incluye validaciones y mensajes de error. Corrobora con sistema de
+                <li><span>Login:</span> es un formulario donde el usuario ingresa email y contraseña. Incluye validaciones y mensajes de error. Corrobora con sistema de
                     autenticación (mockUsers y localStorage) y proporciona opcion para crear nueva cuenta. </li>
-                <li>Registro: es un formulario para crear una nueva cuenta y poder ingresar a la app.</li>
-                <li> Home: Es la pantalla a la que accede el usuario después de iniciar sesión correctamente.
+                <li><span>Registro:</span> es un formulario para crear una nueva cuenta y poder ingresar a la app.</li>
+                <li> <span>Home:</span> Es la pantalla a la que accede el usuario después de iniciar sesión correctamente.
                     Cuenta con un Aside que contiene la lista de usuarios simulada con un filtrador de usarios, y
                     muestra el chat del usuario seleccionado. </li>
-                <li> Not found: Se muestra cuando el usuario intenta entrar a una ruta que no existe.</li>
+                <li> <span>Not found:</span> Se muestra cuando el usuario intenta entrar a una ruta que no existe.</li>
             </ol>
 
             <h2>TEGNOLOGIAS utilizadas: </h2>
-
-            <ul>
-                <li>React</li>
-                <li>Html,Css,JavasCript.</li>
-                <li>React Router Dom.</li>
-            </ul>
+            <div className="containerTeg">
+                <ul>
+                    <li>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="60" />
+                        <small>React</small>
+                    </li>
+                    <li>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="60" />
+                        <small>JavaScript</small>
+                    </li>
+                    <li>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="60" />
+                        <small>Css</small>
+                    </li>
+                    <li>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="60" />
+                        <small>Html</small>
+                    </li>
+                </ul>
+            </div>
 
             <h2> Decisiones Tomadas:</h2>
             <ul>
-                <li>Utilice renderizado condicional para mostrar mensajes de error cuando los datos ingresados son incorrectos.</li>
+                <li>Utilicé renderizado condicional para mostrar mensajes de error cuando los datos ingresados son incorrectos.</li>
                 <li>Convertí los datos que ingresan al momento de compararlos para evitar errores si el usuario escribe el email en mayúsculas.</li>
                 <li>Agregué un botón para mostrar u ocultar la contraseña y para navegar entre login-register para mejorar la experiencia del usuario.</li>
             </ul>

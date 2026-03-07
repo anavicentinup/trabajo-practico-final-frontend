@@ -90,13 +90,15 @@ const Login = () => {
           placeholder="Correo electrónico"
           onChange={handleChangeEmail}
         />
-        <div>
+        <div className="btnPassword">
           <input
             type={showPass ? "text" : "password"}
             placeholder="Contraseña"
             onChange={handleChangePassword}
           />
-          <button onClick={showingPassword}>
+          <button 
+          onClick={showingPassword}
+          type="button">
             {showPass ? <p>🙉</p> : <p>🙈</p>}
           </button>
         </div>

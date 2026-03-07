@@ -66,13 +66,14 @@ const Register = () => {
                     onChange={handleEmail}
                     required />
 
-                <div>
+                <div className="btnPassword">
                     <input type={showPass ? "text" : "password"}
                         name="password"
                         placeholder="ingresa tu contraseña"
                         onChange={handlePassword}
                         required minLength={6} />
-                    <button onClick={showingPassword}>
+                    <button onClick={showingPassword}
+                    type="button">
                         {showPass ? <p>🙉</p> : <p>🙈</p>}
 
                     </button>
