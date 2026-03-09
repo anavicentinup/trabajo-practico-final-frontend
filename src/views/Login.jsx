@@ -43,7 +43,7 @@ const Login = () => {
     const response = login({ email, password })
     console.log(response.password, response.email)
     if (response) {
-       if (password.toLowerCase() !== response.password.toLowerCase()) {
+      if (password.toLowerCase() !== response.password.toLowerCase()) {
         setErrorPass(true)
         return
       }
@@ -77,12 +77,28 @@ const Login = () => {
     navigate("/abautUs")
   }
 
-     const showingPassword = () => {
-        setShowPass(!showPass)
-    }
+  const showingPassword = () => {
+    setShowPass(!showPass)
+  }
 
   return (
     <section className="login">
+      <div className="monos">
+        <img
+          src="https://em-content.zobj.net/thumbs/120/apple/354/see-no-evil-monkey_1f648.png"
+          className="mono mono-ojos"
+        />
+
+        <img
+          src="https://em-content.zobj.net/thumbs/120/apple/354/hear-no-evil-monkey_1f649.png"
+          className="mono mono-oidos"
+        />
+
+        <img
+          src="https://em-content.zobj.net/thumbs/120/apple/354/speak-no-evil-monkey_1f64a.png"
+          className="mono mono-boca"
+        />
+      </div>
       <h2 className="title-login">Bienvenido, inicia sesión</h2>
       <form onSubmit={handleSubmit}>
         <input
@@ -96,9 +112,9 @@ const Login = () => {
             placeholder="Contraseña"
             onChange={handleChangePassword}
           />
-          <button 
-          onClick={showingPassword}
-          type="button">
+          <button
+            onClick={showingPassword}
+            type="button">
             {showPass ? <p>🙉</p> : <p>🙈</p>}
           </button>
         </div>
