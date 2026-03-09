@@ -22,13 +22,9 @@ const ChatProvider = ({ children }) => {
 
   const login = (userData) => {
     const foundUser = mockUsers.find(user => user.email.toLowerCase() === userData.email.toLowerCase())
-
     if (foundUser) {
       return foundUser
     }
-    // if (foundUser.password === userData.password) {
-    //   return true
-    // }
     return false
   }
 

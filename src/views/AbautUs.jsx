@@ -74,17 +74,3 @@ const AbautUs = () => {
     )
 }
 export { AbautUs }
-
-
-// ●
-// Explicación del proyecto
-// ●
-// Partes principales de la aplicación
-// ●
-// Tecnologías utilizadas
-// ●
-// Decisiones de desarrollo tomadas
-// ●
-// Observaciones personales del estudiante
-// ●
-// Dificultades encontradas (opcional)

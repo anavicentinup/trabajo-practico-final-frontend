@@ -6,7 +6,7 @@ const Chat = () => {
   const [text, setText] = useState("")
   const chatBodyRef = useRef(null)
 
-  const { selectedUser, logout, handleMessages } = useContext(ChatContext)
+  const {selectedUser, logout, handleMessages } = useContext(ChatContext)
 
   const navigate = useNavigate()
 
@@ -24,14 +24,12 @@ const Chat = () => {
     if (text.length === 0) {
       return
     }
-
     const currentTime = new Date()
     const newMessage = {
-      author: "Ana",
+      author: "Yo",
       time: currentTime.getHours() + ":" + currentTime.getMinutes(),
       text: text
     }
-
     handleMessages(newMessage)
     setText("")
   }
@@ -62,11 +60,10 @@ const Chat = () => {
           <h2>{selectedUser.firstName} {selectedUser.lastName}</h2>
           <p>{selectedUser.address.country}</p>
         </div>
-        <button onClick={handleLogout}>Cerrar sesión</button>
       </header>
       <div className="chat-body" ref={chatBodyRef}>
         {
-          selectedUser.messages.map((message) => <div key={message.id} className={`message ${message.author === "Ana" ? "me" : "received"}`}>
+          selectedUser.messages.map((message) => <div key={message.id} className={`message ${message.author === "Yo" ? "Yo" : "received"}`}>
             <p><b>{message.author}</b>: {message.text}</p>
             <p className="timestamp">{message.time}</p>
           </div>)

@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react"
 import { ChatContext } from "../context/ChatContext"
-// import { users } from "../services/mockApi.js"
+import { useNavigate } from "react-router-dom"
 
 const Aside = () => {
   const [search, setSearch] = useState("")
-
-  const { users, handleSelectedUserId } = useContext(ChatContext)
+ const navigate = useNavigate()
+  const { users, handleSelectedUserId,logout } = useContext(ChatContext)
 
   const handleChange = (event) => {
     setSearch(event.target.value)
@@ -19,7 +19,10 @@ const Aside = () => {
   const handleClick = (id) => {
     handleSelectedUserId(id)
   }
-
+  const handleLogout = () => {
+    logout()
+    navigate("/login")
+  }
   return (
     <aside>
       <h1>Chat UTN</h1>
@@ -40,6 +43,7 @@ const Aside = () => {
           ))
         }
       </ul>
+       <button onClick={handleLogout}>Cerrar sesión</button>
     </aside>
   )
 }

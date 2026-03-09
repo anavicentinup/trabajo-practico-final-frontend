@@ -15,7 +15,6 @@ const Register = () => {
 
     const handleName = (e) => {
         setFirstName(e.target.value)
-
     }
     const handleLastName = (e) => {
         setLastName(e.target.value)
@@ -75,7 +74,6 @@ const Register = () => {
                     <button onClick={showingPassword}
                     type="button">
                         {showPass ? <p>🙉</p> : <p>🙈</p>}
-
                     </button>
                 </div>
 

@@ -22,19 +22,6 @@ const Login = () => {
     setPassword(e.target.value)
   }
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault()
-  //   setError(null)
-  //   const response = login({ email, password })
-  //   if ( response || loggedUser && email === loggedUser.email && password === loggedUser.password) {
-  //     handleUser({ email, password })
-  //     navigate("/")
-  //     return
-  //   } 
-  //   setError(true)
-  //   return
-  // }
-
   const handleSubmit = (e) => {
     e.preventDefault()
     setError(null)
@@ -83,20 +70,20 @@ const Login = () => {
 
   return (
     <section className="login">
-      <div className="monos">
+      <div className="monkeys">
         <img
           src="https://em-content.zobj.net/thumbs/120/apple/354/see-no-evil-monkey_1f648.png"
-          className="mono mono-ojos"
+          className="monkeys monkeys-eyes"
         />
 
         <img
           src="https://em-content.zobj.net/thumbs/120/apple/354/hear-no-evil-monkey_1f649.png"
-          className="mono mono-oidos"
+          className="monkeys monkeys-ears"
         />
 
         <img
           src="https://em-content.zobj.net/thumbs/120/apple/354/speak-no-evil-monkey_1f64a.png"
-          className="mono mono-boca"
+          className="monkeys monkeys-mouth"
         />
       </div>
       <h2 className="title-login">Bienvenido, inicia sesión</h2>
