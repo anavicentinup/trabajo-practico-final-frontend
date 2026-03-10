@@ -393,15 +393,15 @@ body{
 }
 
 .monkeys-eyes{
-  animation-delay: 0s;
+  animation-delay: 1s;
 }
 
 .monkeys-ears{
-  animation-delay: 4s;
+  animation-delay: 2s;
 }
 
 .monkeys-mouth{
-  animation-delay: 8s;
+  animation-delay: 3s;
 }
 
 @keyframes change{

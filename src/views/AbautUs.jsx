@@ -23,7 +23,7 @@ const AbautUs = () => {
                     autenticación (mockUsers y localStorage) y proporciona opcion para crear nueva cuenta. </li>
                 <li><span>Registro:</span> es un formulario para crear una nueva cuenta y poder ingresar a la app.</li>
                 <li> <span>Home:</span> Es la pantalla a la que accede el usuario después de iniciar sesión correctamente.
-                    Cuenta con un Aside que contiene la lista de usuarios simulada con un filtrador de usarios, y
+                    Cuenta con un Aside que contiene la lista de usuarios simulada con un filtrador de usuarios, y
                     muestra el chat del usuario seleccionado. </li>
                 <li> <span>Not found:</span> Se muestra cuando el usuario intenta entrar a una ruta que no existe.</li>
             </ol>
